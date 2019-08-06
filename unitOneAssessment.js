@@ -7,7 +7,17 @@ let assert = require('assert')
 
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+const isOdd = (num) => {
+  if (num === null){
+    return false
+  } else if (num % 2 === 0){
+    return false
+  } else if (num % 2 !== 0){
+    return true
+  }
+}
+
+runQ1Tests()
 
 
 // Question Two:
@@ -15,7 +25,16 @@ let assert = require('assert')
 // Write a function called numberOfDigits that returns how many digits are in a given number
 
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+const numberOfDigits = (num) => {
+  let splitNum = num.toString().split('')
+  let count = 0
+  for (let i = 0; i < splitNum.length; i++){
+    count++
+  }
+  return count
+}
+
+runQ2Tests()
 
 // Question Three:
 
@@ -23,13 +42,43 @@ let assert = require('assert')
 // Treat y as a consonant, not a vowel
 
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+
+let arra = ['anwonoweanrvweo']
+
+const disemvowel = (str) => {
+  let vowel = ['a','A','e','E','i','I','o','O','u','U']
+  let splitStr = str.toString().split('')
+  let noVowelArray = []
+    for (let i = 0; i < splitStr.length; i++){
+      for (elem of vowel){
+        if (splitStr[i] === elem){
+          noVowelArray.slice(splitStr[i],1)
+        }
+      }
+    }
+    return noVowelArray.join('')
+}
+
+
+runQ3Tests()
 
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
 
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+numb = [1,2,3,4,5,6]
+const secondSmallest = (arr) => {
+  let obj = {}
+  let smallest = 10000000
+  for (elem in arr){
+    if (elem < smallest){
+      elem = smallest
+    }
+    return smallest
+  }
+ }
+
+runQ4Tests()
 
 // Question Five:
 // Write a function called getLocations that takes in an array of objects that look like the array below,
@@ -43,7 +92,15 @@ let assert = require('assert')
 // ["Algeria", "Belize", "China", "Denmark"]
 
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+ const getLocations = (arr) => {
+   let locArray = []
+   for (let i = 0; i < arr.length; i++){
+     locArray.push(arr[i].location)
+   }
+   return locArray
+ }
+
+runQ5Tests()
 
 
 // Question Six:
@@ -52,7 +109,16 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+const onlyOddStrings = (arr) =>{
+  let oddStrNumArray = arr.filter(elem => {
+    if (elem.length % 2 !== 0){
+      return elem
+    }
+  })
+  return oddStrNumArray
+}
+
+runQ6Tests()
 
 
 // Question Seven:
@@ -71,7 +137,26 @@ let assert = require('assert')
 // The output should be in the same order as the input
 
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+
+let arr = [{a: 1}, {b: 2}, {c: 3}]
+
+class Day {
+  constructor (temperature, weather){
+    this.temperature = temperature
+    this.weather = weather
+  };
+  getDescription(){
+    return `It is ${this.temperature} degrees and ${this.weather}`
+  };
+}
+const getAllDayDescriptions = (arr) => {
+  let getArrOfDescr = arr.map(elem => {
+    elem.getDescription()
+  })
+  return getArrOfDescr
+}
+
+runQ7Tests()
 
 
 
